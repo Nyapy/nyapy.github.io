@@ -1,1 +1,186 @@
-Hello World
+<!doctype html>
+<html lang="ko" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>nyapy — home</title>
+  <meta name="description" content="nyapy의 개인 블로그 – 엔지니어링, 러닝, 그리고 메모." />
+  <meta property="og:title" content="nyapy — blog" />
+  <meta property="og:description" content="엔지니어링, 러닝, 그리고 메모." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nyapy.github.io/" />
+  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐾</text></svg>">
+
+  <!-- Tailwind CSS (CDN) - 간단히 꾸미기에 좋아요. 빌드 없이 사용 가능 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: '#0ea5e9',
+              50: '#ecfeff', 100: '#cffafe', 200: '#a5f3fc', 300: '#67e8f9', 400: '#22d3ee',
+              500: '#06b6d4', 600: '#0891b2', 700: '#0e7490', 800: '#155e75', 900: '#164e63'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* 코드 블록 가독성 향상 */
+    pre { overflow-x: auto; }
+  </style>
+  <script>
+    // 다크모드: 사용자 선호 저장 & 복원
+    (function() {
+      const stored = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (stored === 'dark' || (!stored && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    })();
+  </script>
+</head>
+<body class="bg-white text-slate-800 dark:bg-slate-900 dark:text-slate-100 antialiased">
+  <!-- Header -->
+  <header class="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/70 dark:supports-[backdrop-filter]:bg-slate-900/70 border-b border-slate-200/50 dark:border-slate-800">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="#home" class="font-bold tracking-tight text-xl">nyapy<span class="text-brand">.</span></a>
+      <nav class="hidden sm:flex gap-6 text-sm">
+        <a href="#about" class="hover:text-brand-600 dark:hover:text-brand-300">About</a>
+        <a href="#posts" class="hover:text-brand-600 dark:hover:text-brand-300">Posts</a>
+        <a href="#projects" class="hover:text-brand-600 dark:hover:text-brand-300">Projects</a>
+        <a href="#contact" class="hover:text-brand-600 dark:hover:text-brand-300">Contact</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <button id="themeToggle" class="rounded-xl border border-slate-200/70 dark:border-slate-700 px-3 py-1.5 text-xs hover:bg-slate-50 dark:hover:bg-slate-800" aria-label="Toggle dark mode">🌗</button>
+        <a class="text-sm underline decoration-dotted hover:text-brand-600 dark:hover:text-brand-300" href="https://github.com/nyapy" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+    <div class="grid md:grid-cols-12 gap-8 items-center">
+      <div class="md:col-span-7">
+        <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight"><span class="text-brand-600">Nyapy</span> 입니다 🐱</h1>
+        <p class="mt-4 text-lg text-slate-600 dark:text-slate-300">NVMe 기반 SSD 품질/신뢰성, 알고리즘 문제풀이, 그리고 러닝까지. 해본 것, 배운 것, 시행착오를 기록합니다.</p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#posts" class="inline-flex items-center rounded-xl bg-brand px-4 py-2 text-white shadow hover:shadow-md">최신 글 보기</a>
+          <a href="#projects" class="inline-flex items-center rounded-xl border border-slate-200/80 dark:border-slate-700 px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800">프로젝트</a>
+          <a href="#about" class="inline-flex items-center rounded-xl border border-slate-200/80 dark:border-slate-700 px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800">소개</a>
+        </div>
+      </div>
+      <div class="md:col-span-5">
+        <figure class="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-700">
+          <img
+            src="assets/hero.png"
+            alt="nyapy 블로그 커버 이미지"
+            class="h-full w-full object-cover"
+            loading="eager" decoding="async"
+            width="1280" height="960"
+          />
+        </figure>
+        <figcaption class="mt-2 text-xs text-slate-500">대충 카방클 이미지.</figcaption>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-12 border-t border-slate-200/60 dark:border-slate-800">
+    <h2 class="text-2xl font-bold">About</h2>
+    <p class="mt-3 text-slate-700 dark:text-slate-300 leading-relaxed">
+      삼성전자 메모리사업부에서 NVMe SSD 품질/신뢰성 업무를 하며, C/C++/Python과 Linux 환경을 즐겨 씁니다. 
+      글은 주로 <span class="font-medium">스토리지, 임베디드/알고리즘, 개발환경 팁</span> 그리고 <span class="font-medium">러닝/운동</span>을 다룹니다.
+    </p>
+    <ul class="mt-4 text-slate-600 dark:text-slate-400 list-disc pl-6 space-y-1">
+      <li>관심사: NVMe, fio/nvme-cli, 테스트 자동화, Jekyll, GitHub Pages</li>
+      <li>도구: C/C++, Python, Bash, Linux, Git, Jira, Confluence</li>
+    </ul>
+  </section>
+
+  <!-- Posts -->
+  <section id="posts" class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-12 border-t border-slate-200/60 dark:border-slate-800">
+    <div class="flex items-center justify-between">
+      <h2 class="text-2xl font-bold">Latest Posts</h2>
+      <a href="/archive" class="text-sm underline decoration-dotted hover:text-brand-600 dark:hover:text-brand-300">모든 글</a>
+    </div>
+    <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- 게시글 카드는 마크다운 파일로 전환 시 자동 생성되도록 Jekyll로 내릴 수 있어요. 지금은 플레이스홀더. -->
+      <article class="group rounded-2xl border border-slate-200 dark:border-slate-700 p-5 hover:shadow">
+        <a href="#" class="block">
+          <h3 class="font-semibold group-hover:text-brand-600 dark:group-hover:text-brand-300">fio로 NVMe SSD 레이턴시 프로파일링</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">워크로드 설계와 prchk 옵션, bs vs bsrange 사용 팁.</p>
+          <p class="mt-3 text-xs text-slate-500">2025-09-21</p>
+        </a>
+      </article>
+      <article class="group rounded-2xl border border-slate-200 dark:border-slate-700 p-5 hover:shadow">
+        <a href="#" class="block">
+          <h3 class="font-semibold group-hover:text-brand-600 dark:group-hover:text-brand-300">백준: 다익스트라 튜닝 메모</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">우선순위 큐 키 설계, 방문 처리, 엣지 케이스.</p>
+          <p class="mt-3 text-xs text-slate-500">2025-09-15</p>
+        </a>
+      </article>
+      <article class="group rounded-2xl border border-slate-200 dark:border-slate-700 p-5 hover:shadow">
+        <a href="#" class="block">
+          <h3 class="font-semibold group-hover:text-brand-600 dark:group-hover:text-brand-300">GitHub Pages로 블로그 시작하기</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">nyapy.github.io 세팅과 커스텀 도메인 메모.</p>
+          <p class="mt-3 text-xs text-slate-500">2025-09-01</p>
+        </a>
+      </article>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-12 border-t border-slate-200/60 dark:border-slate-800">
+    <h2 class="text-2xl font-bold">Projects</h2>
+    <div class="mt-6 grid sm:grid-cols-2 gap-6">
+      <div class="rounded-2xl border border-slate-200 dark:border-slate-700 p-5">
+        <h3 class="font-semibold">SSD 테스트 자동화 도구</h3>
+        <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">JSON 기반 설정 생성기와 fio 템플릿 매니저.</p>
+        <a class="mt-3 inline-block text-sm underline decoration-dotted hover:text-brand-600 dark:hover:text-brand-300" href="#">GitHub 보기</a>
+      </div>
+      <div class="rounded-2xl border border-slate-200 dark:border-slate-700 p-5">
+        <h3 class="font-semibold">알고리즘 노트</h3>
+        <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">세그트리/다익스트라/모스 알고리즘 정리.</p>
+        <a class="mt-3 inline-block text-sm underline decoration-dotted hover:text-brand-600 dark:hover:text-brand-300" href="#">문서 읽기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-12 border-t border-slate-200/60 dark:border-slate-800">
+    <h2 class="text-2xl font-bold">Contact</h2>
+    <p class="mt-3 text-slate-700 dark:text-slate-300">아래 링크로 언제든 연락 주세요.</p>
+    <div class="mt-4 flex flex-wrap gap-3 text-sm">
+      <a class="rounded-xl border border-slate-200 dark:border-slate-700 px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800" href="mailto:nyapy@users.noreply.github.com">Email</a>
+      <a class="rounded-xl border border-slate-200 dark:border-slate-700 px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800" href="https://github.com/nyapy" target="_blank" rel="noreferrer">GitHub</a>
+      <a class="rounded-xl border border-slate-200 dark:border-slate-700 px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800" href="#">LinkedIn</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 text-center text-sm text-slate-500">
+    <p>© <span id="year"></span> nyapy. Built with ❤️ on GitHub Pages.</p>
+  </footer>
+
+  <script>
+    // 연도 자동 업데이트
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // 다크모드 토글
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const root = document.documentElement;
+      const willDark = !root.classList.contains('dark');
+      root.classList.toggle('dark', willDark);
+      localStorage.setItem('theme', willDark ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>
