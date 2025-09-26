@@ -265,16 +265,15 @@
       .qa-badge { animation: none; }
     }
     /* ===== Global Logo ===== */
-    .logo {
-      position: fixed;
-      top: 8rem;
-      left: 0rem;
-      z-index: 1000;   /* 슬라이드 내용 위에 보이도록 */
-    }
-    .logo img {
-      height: 100px;    /* 로고 크기 조정 */
-      width: auto;
-    }
+.logo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fff; /* 흰색 글씨 */
+  z-index: 10;
+}
 
   </style>
 </head>
@@ -282,9 +281,7 @@
 
     <!-- Global Logo -->
   <div class="logo">
-    <a href="index.html">
-      <img src="assets/logo.png" alt="회사 로고" />
-    </a>
+    <div class="logo"> NYAPY </div>
   </div>
   <div class="viewport">
     <div id="slider" class="slider">
